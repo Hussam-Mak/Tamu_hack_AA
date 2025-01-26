@@ -1,0 +1,85 @@
+used the repository and its instructions to run the api locally. Then changed some api files to give us more data. An example of the data the new api produces is as follows:
+
+
+[
+    {
+        "flightNumber": "2736",
+        "origin": {
+            "code": "DFW",
+            "city": "Dallas-Fort Worth",
+            "timezone": "America/Chicago",
+            "location": {
+                "latitude": 32.8998,
+                "longitude": -97.0403
+            }
+        },
+        "destination": {
+            "code": "PHL",
+            "city": "Philadelphia",
+            "timezone": "America/New_York",
+            "location": {
+                "latitude": 39.8729,
+                "longitude": -75.2437
+            }
+        },
+        "distance": 1302,
+        "duration": {
+            "locale": "3h 35m",
+            "hours": 3,
+            "minutes": 35
+        },
+        "departureTime": "2021-01-01T02:45:17.142-06:00",
+        "arrivalTime": "2021-01-01T07:20:17.142-05:00",
+        "aircraft": {
+            "model": "757",
+            "passengerCapacity": {
+                "total": 176,
+                "main": 160,
+                "first": 16
+            },
+            "speed": 380
+        },
+        "pilot": {
+            "id": "P-1003",
+            "name": "Alex Johnson"
+        },
+        "fuelUsed": 10416,
+        "highestElevation": 39805,
+        "weather": "cloudy"
+    },
+
+
+an example of its combination with our backend is as follows:
+
+{
+  "flights": [
+    {
+      "flightNumber": "2736",
+      "pilot": {
+        "id": "P-1003",
+        "name": "Alex Johnson"
+      },
+      "distance": 1302,
+      "duration": {
+        "hours": 3,
+        "minutes": 35
+      },
+      "weather": "cloudy",
+      "highestElevation": 39805,
+      "fuelUsed": 13020
+    }
+  ],
+  "pilotStatistics": [
+    {
+      "id": "P-1003",
+      "name": "Alex Johnson",
+      "totalFlights": 1,
+      "totalMiles": 1302,
+      "totalHours": 3.5833,
+      "weatherConditions": ["cloudy"],
+      "highestElevation": 39805,
+      "averageFuelEfficiency": 0.1
+    }
+  ]
+}
+
